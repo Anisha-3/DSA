@@ -405,7 +405,6 @@ int main(){
     4*5*6
     2*3
     1
-    */
 
     int n;
     cin>>n;
@@ -431,6 +430,7 @@ int main(){
         }start -= (n-row-1);
         cout<<endl;
     }
+    */
 
 
 
