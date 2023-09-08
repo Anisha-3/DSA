@@ -432,6 +432,28 @@ int main(){
     }
     */
 
+    /*
+    *
+    * 1 *
+    * 1 2 1 *
+    * 1 2 3 2 1 *
+    * 1 2 1 *
+    * 1 *
+    *
+    */
+    int n;
+    cin>>n;
+    for(int row = 0; row < n; row++){
+        int cond = row <= n/2 ? 2*row : 0;
+        for(int col = 0; col <=cond; col++){
+            if(col <= cond/2){
+                cout<<col+1<<" ";
+            }else{
+                cout<<cond-col+1<<" ";
+            }
+        }cout<<endl;
+    }
+
 
 
 
