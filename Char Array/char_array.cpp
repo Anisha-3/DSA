@@ -45,7 +45,20 @@ void replaceWithSpace(char ch[], int n) {
 }
 
 bool checkPalindrome(char ch[], int n) {
-    
+    // n -> length of string
+    int i = 0;
+    int j = n - 1;
+
+    while(i <= j){
+        if(ch[i] == ch[j]){
+            i++;
+            j--;
+        }else{
+            //characters are not same
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
@@ -91,6 +104,15 @@ int main() {
     */
 
     //      Check Palindrome
+    char ch[100];
+    cin.getline(ch, 100);
+    int len = findLength(ch, 100);
+    bool isPalindrome = checkPalindrome(ch, len);
+    if(isPalindrome) {
+        cout << "Valid Palindrome" << endl;
+    } else {
+        cout << "InValid Palindrome" << endl;
+    }
 
 
     return 0;
