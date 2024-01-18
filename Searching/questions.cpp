@@ -1,4 +1,7 @@
 #include<iostream>
+#include<vector>
+#include<set>
+#include<algorithm>
 using namespace std;
 
 /*
@@ -309,7 +312,7 @@ int main() {
 }
 */
 
-/* // find the odd occuring element */
+/* // find the odd occuring element 
 
 int findOddOccuringElement(int arr[], int n) {
     int s = 0;
@@ -352,3 +355,155 @@ int main() {
 
     return 0;
 }
+*/
+
+/*
+//                                  K-Diff pairs in an array
+// METHOD - 1 : BRUTE FORCE -> we'll check all possible pairs in this approach => T.C = O(N^2)
+// METHOD - 2 : TWO POINTER APPROACH => T.C = O(N)
+int findPairs(vector<int>& nums, int k) {
+    sort(nums.begin(), nums.end());
+    set<pair<int,int>> ans;
+    int i = 0, j = 1;
+    while(j < nums.size()) {
+        int diff = nums[j] - nums[i];
+        if (diff == k) {
+            ans.insert({nums[i], nums[j]});
+            ++i, ++j;
+        } else if(diff > k) {
+            i++;
+        }else {
+            j++;
+        }
+        if(i == j) j++;
+    }
+    return ans.size();
+}
+// METHOD - 3 -> 
+int bs(vector<int>& nums, int start, int x) {
+    int end = nums.size() - 1; 
+    while(start <= end) {
+        int mid = start + (end - start)/2;
+        if(nums[mid] == x) {
+            return mid;
+        } else if(x > nums[mid]) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+    return -1;
+}
+
+int findPairss(vector<int>& nums, int k) {
+    sort(nums.begin(), nums.end());
+    set<pair<int,int>> ans;
+    for(int i = 0; i < nums.size(); i++) {
+        if(bs(nums, i+1, nums[i]+k) != -1) {
+            ans.insert({nums[i], nums[i] + k});
+        }
+    }
+    return ans.size();
+}
+
+int main() {
+    vector<int> nums = {1,2,3,4,5};
+    int k = 1;
+    // cout << findPairs(nums, k);
+    cout << findPairss(nums, k);
+
+    return 0;
+}
+*/
+
+/*
+//                                   Find K closest Elements
+
+// METHOD - 1 T.C -> O(nlogn)
+vector<int> customCompartorMethod(vector<int>& arr, int k, int x) {
+    auto cmp = (int &a, int &b) {
+        int diffA = abs(a - x);
+        int diffB = abs(b - x);
+        return diffA < diffB || (diffA == diffB && a < b);
+    };
+
+    // sorting the array based on the custom compartor
+    sort(arr.begin(), arr.end(), cmp);
+
+    // Extracting the first k elements
+    vector<int> result(arr.begin(), arr.begin() + k); 
+
+    // Sorting the ans to maintain the ascending order
+    sort(result.begin(), result.end());
+    return result;
+}
+
+// METHOD - 2 : Two Pointer Approach -> T.C = O(N - k)
+vector<int> twoPtrMethod(vector<int>& arr, int k, int x) {
+    int l = 0, h = arr.size() - 1;
+    while(h - l >= k) {
+        if(x - arr[l] > arr[h] - x) {
+            l++;
+        } else {
+            h--;
+        }
+    }
+
+    // vector<int> ans;
+    // for(int i = l; i <= h; i++) {
+    //     ans.push_back(arr[i]);
+    // }
+    // return ans;
+
+    return vector<int>(arr.begin() + l, arr.begin() + h + 1);
+}
+
+// METHOD - 3 : Binary Search + Two Pointer Approach 
+int lowerBound(vector<int>& arr, int x) {
+    int start = 0, end = arr.size() - 1;
+    int ans = end;
+    while(start <= end) {
+        int mid = start + (end - start) / 2;
+        if(arr[mid] >= x) {
+            ans = mid;
+            end = mid - 1;
+        } else if(x > arr[mid]) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+    return ans;
+}
+vector<int> bs_Method(vector<int>& arr, int k, int x) {
+    // lower bound
+    int h = lowerBound(arr, x);
+    int l = h - 1;
+    while(k--) {
+        if(l < 0) {
+        h++;
+        } else if (h >= arr.size()) {
+            l--;
+        } else if(x - arr[l] > arr[h] - x) {
+            h++;
+        } else {
+            l--;
+        }
+    }
+    return vector<int>(arr.begin() + l + 1, arr.begin() + h);
+}
+
+int main() {
+    vector<int> arr = {12,16,22,30,35,39,42,45,48,50,53,55,56};
+    int k = 4;
+    int x = 35;
+    //vector<int> ans = customCompartorMethod(arr, k, x); 
+    // vector<int> ans = twoPtrMethod(arr, k, x);
+    vector<int> ans = bs_Method(arr, k, x);   
+    for(int i = 0; i < ans.size(); i++) {
+        cout << ans[i] << " ";
+    }
+
+    return 0;
+}
+*/

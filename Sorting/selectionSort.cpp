@@ -2,6 +2,13 @@
 #include<vector>
 using namespace std;
 
+/*
+Time complexity
+Best Case: O(n^2)
+Avg Case: O(n^2)
+Worst Case: O(n^2)
+*/
+
 void print(vector<int> &v) {
     for(int i = 0; i < v.size(); i++){
         cout << v[i] << " ";
