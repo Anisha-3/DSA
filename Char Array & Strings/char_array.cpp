@@ -3,14 +3,20 @@
 using namespace std;
 
 int findLength(char ch[], int size) {
-    int length = 0;
-    for(int i = 0; i < size; i++) {
-        if(ch[i] == '\0'){
-            break;
-        }else {
-            length++;
-        }
-    }return length;
+    int index, length = 0;
+    
+    while(ch[index] != '\0') {
+        length++;
+        index++;
+    }
+
+    // for(int i = 0; i < size; i++) {
+    //     if(ch[i] == '\0'){
+    //         break;
+    //     }else {
+    //         length++;
+    //     }
+    // }return length;
 }
 
 void reverseString(char ch[], int n) {
