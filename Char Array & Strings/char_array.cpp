@@ -99,6 +99,7 @@ int main() {
     cout << "Before " << ch << endl;
     converToUpperCase(ch, 100);
     cout << "After " << ch << endl;
+    // toupper() and tolower()
     */
 
     /*   //      Replace @ with space
