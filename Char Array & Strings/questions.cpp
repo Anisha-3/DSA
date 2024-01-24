@@ -43,7 +43,7 @@ int main() {
 */
 
 /*
-// Valid Palindrome II : Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+// Valid Palindrome II : Given a string s, return true if the s can be palindrome after deleting at most one character from it. (leetcode -680)
 // T.C -> O(n)
 bool checkPalindrome(string s, int i, int j) {
     while(i < j) {
@@ -88,7 +88,7 @@ int main() {
 */
 
 /* VERY IMPORTENT 
-// Palindromic Substrings -> Given a string s, return the number of palindromic substrings in it.
+// Palindromic Substrings -> Given a string s, return the number of palindromic substrings in it. (leetcode -647)
 
 int expand(string s, int i, int j) {
     int count = 0;
