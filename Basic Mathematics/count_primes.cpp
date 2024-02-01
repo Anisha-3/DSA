@@ -22,16 +22,16 @@ Prime Number
 int countPrimes(int n) {
     if(n == 0) return 0;
 
-    vector<bool> prime(n, true); // all are prime marked already
-    prime[0] = prime[1] = false;
+    vector<bool> sieve(n, true); // all are prime marked already
+    sieve[0] = sieve[1] = false;
     int ans = 0;
     for(int i = 2; i < n; i++) {
-        if(prime[i]) {
+        if(sieve[i]) {
             ans++;
             
             int j = 2*i;
             while(j < n) {
-                prime[j] = false;
+                sieve[j] = false; 
                 j += i;
             }
         }
