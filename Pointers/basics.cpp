@@ -63,14 +63,21 @@ int main() {
     // cout<<*q<<endl;
 
 
-    int arr[5] = {10,20,30,40,50};
-    cout<<*(arr+1);
+    // int arr[5] = {10,20,30,40,50};
+    // cout << 2[arr]; // it is same as arr[2] both are correct as inside it works as (*(arr+i)) = arr[i] or (*(i+arr)) = i[arr] both are same
 
+    // int a = 5;
+    // int* p = &a;
+    // p = p + 1;
+    // cout << *p;
+
+    char ch = 'b';
+    char *cptr = &ch;
+    cout << cptr;  // it will print b and then some random values till null character occurs
     
-    
 
 
 
 
-
+    return 0;
 }
