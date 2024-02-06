@@ -71,13 +71,14 @@ int main() {
     // p = p + 1;
     // cout << *p;
 
-    char ch = 'b';
-    char *cptr = &ch;
-    cout << cptr;  // it will print b and then some random values till null character occurs
+    // char ch = 'b';
+    // char *cptr = &ch;
+    // cout << cptr;  // it will print b and then some random values till null character occurs
+
+    // int arr[5] = {1,2,3,4,5};
+    // // Pointer to an array
+    // int* ptr1 = arr;
+    // int (*ptr)[5] = &arr; 
     
-
-
-
-
     return 0;
 }
