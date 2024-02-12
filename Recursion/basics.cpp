@@ -345,3 +345,66 @@ int main(){
     return 0;
 }
 */
+
+/*
+// check if array is sorted or not using recursion
+bool checkSorted(int arr[], int size, int index) {
+    if(index >= size) {
+        return true;
+    }
+    
+    if(arr[index] > arr[index-1]) {
+        checkSorted(arr, size, index + 1);
+    } else {
+        return false;
+    }  
+}
+int main() {
+    int arr[] = {10,20,30,10,50,60};
+    int size = 6;
+    int index = 1;
+    bool isSorted = checkSorted(arr, size, index);
+    if(isSorted) {
+        cout << "Array is Sorted";
+    } else {
+        cout << "Array is not Sorted";
+    }
+    return 0;
+}
+*/
+// int fun(int n, int *f_p) {
+//     int t, f;
+//     if(n <= 1){
+//         *f_p = 1;
+//         return 1;
+//     }
+//     t = fun(n-1, f_p);
+//     f = t + *f_p;
+//     *f_p = t;
+//     return f;
+// }
+// int main() {
+//     int x = 15;
+//     cout << fun(7, &x) << endl;
+//     return 0;
+// }
+
+
+// int f(int x, int y) {
+//     if(y <= 0) return x;
+//     return f(y, x%y);
+// }
+// int main() {
+//     cout << f(24, 12) << endl;
+//     return 0;
+// }
+
+
+int f(int num) {
+    return (num) ? num + f(num/10) : 0;
+}
+int main() {
+    cout << f(4657) << endl;
+    return 0;
+}
+
