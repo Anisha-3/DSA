@@ -372,6 +372,9 @@ int main() {
     return 0;
 }
 */
+
+
+
 // int fun(int n, int *f_p) {
 //     int t, f;
 //     if(n <= 1){
