@@ -4,16 +4,25 @@ using namespace std;
 class abc{
     mutable int x;
     int *y;
-    int z; 
+    const int z; 
 
 public:
-    
-    abc(int _x, int _y, int _z = 0) // default argument 
-    {
-        x = _x;
-        y = new int(_y);
-        z = _z;
+
+    // ctor : old style
+    // abc(int _x, int _y, int _z = 0) // default argument 
+    // {
+    //     x = _x;
+    //     y = new int(_y);
+    //     z = _z;
+    // }
+
+    // initialization list
+    abc(int _x, int _y, int _z = 0): x(_x), y(new int(_y)), z(_z) {
+        cout << "in init list" << endl;
+        *y *= 10;
     }
+
+
     int getX() const {
         x = 10;
         return x;
